@@ -1,11 +1,14 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 const Content = props => {
 
     const Selector = () =>{
-        if(props === 0) {
+
+        const selected = props.selected
+
+        if(selected === 0) {
             return <h1>AOAOAOO</h1>
-        } else if (props === 1) {
+        } else if (selected === 1) {
             return <h1>AAIJAIAI</h1>
         } else {
             return <h1>erererer</h1>
