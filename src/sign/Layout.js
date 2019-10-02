@@ -1,7 +1,19 @@
+import React from 'react'
+import Header from './layout//Header'
+import Content from './layout/Content'
+
 const Layout = props => {
+
     return (
         <div>
-            <h1>Bem vindx</h1>
+            <div id="header">
+                <Header />
+            </div>
+            <div id="body" className="container">
+                <Content selected={props.selected} />
+            </div>
         </div>
     )
 }
+
+export default Layout

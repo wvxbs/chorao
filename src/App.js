@@ -2,11 +2,17 @@ import React from 'react';
 import logo from './logo.svg';
 import './Style.sass';
 import { BrowserRouter, Route } from 'react-router-dom'
+import Layout from './sign/Layout'
 
-function App() {
+const AuthFlow = () => {
+  
+}
+
+
+const App = () => {
   return (
     <BrowserRouter>
-      <Route  />
+      <Route  exact path="/" component={Layout} />
     </BrowserRouter>
   )
 }
