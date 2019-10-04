@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import SignIn from './content/SignIn'
+import SignUp from './content/SignUp'
 
 const Content = props => {
 
@@ -6,10 +8,10 @@ const Content = props => {
 
         const selected = props.selected
 
-        if(selected === 0) {
-            return <h1>AOAOAOO</h1>
-        } else if (selected === 1) {
-            return <h1>AAIJAIAI</h1>
+        if(selected === 1) {
+            return <SignIn />
+        } else if (selected === 2) {
+            return <SignUp />
         } else {
             return <h1>erererer</h1>
         }
