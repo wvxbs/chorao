@@ -1,104 +1,109 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import './Style.sass';
-import { BrowserRouter, Route, Redirect, withRouter } from 'react-router-dom'
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
 import Sign from './sign/Sign'
+import Home from './signed/Home'
 import { CookiesProvider } from 'react-cookie'
 
 
-const App = props => {
+export default class App extends React.Component {
 
-  const [logged, setLogged] = useState(null)
-  const [path, setPath] = useState("")
+  constructor(props) {
+    super(props)
+    this.state = ({
+      logged : false
+    })
+  }
 
-  useEffect(()=> {
-    //setPath(props.location.pathname)
+  componentWillMount() {
 
-    setLogged(true)
-  })
+    //this.setState({logged : true})
 
-  const Auth = (s) =>{
+  }
 
-    if(s == 0) {
-      return <Redirect to="/SignIn" />
+  render() {
 
-    } else {
-      return <Sign selected={s} />
+    var {logged} = this.state
 
+    const DefaultRoute = () => {
+
+      if(logged === true) {
+       return (
+          <Redirect to="/Home" />
+       )
+  
+      } else if (logged === false) {
+  
+        return (
+          <Redirect to="/SignIn" />
+        )      
+      } 
+  
     }
-  }
+  
+    const Selector = (cat, id) => {
 
-  const Home = (s) =>{
-
-    if(s == 0) {
-      return <Redirect to="/Home" />
-
-    } else {
-      return <Home selected={s} />
-
+      switch(cat){
+        case 1:
+          return <Home selected={id} />
+        break
+        case 2:
+          return <Sign selected={id} />
+        break
+        case 3:
+          return <Sign selected={id} />
+        break
+        case 4:
+          return <Sign selected={id} />
+        break
+        default :
+          return <Sign selected={id} />
+        break
+      }
     }
-  }
 
-  const Location = () => {
-    if(path == "SignIn" && logged == true) {
-      Home(1)
-    } else if(path == "Home" && logged == false) {
-      Auth(2)
+    const NonProtectedRoute = props => {
+      if(logged === false) { 
+        return (
+            <Route 
+                path={"/" + props.path + ""} 
+                component={() => <Sign selected={props.cat} /> }
+            />
+          )
+      } else if (logged === true) {
+        return (
+          <Redirect to="/Home" />
+        )      
+      } 
     }
-  }
 
-  const LoginStack = () => {
-    return (
-        <BrowserRouter>
-          <Route exact={true} path="/" component={() => Auth(0)} />
-          <Route path="/SignIn" component={() => Auth(1)} />
-          <Route path="/SignUp" component={() => Auth(2)} />
-        </BrowserRouter>
-    )
-  }
+    const ProtectedRoute = props => {
+      if(logged === true) { 
+        return (
+            <Route 
+                path={"/" + props.path + ""} 
+                component={() => {
+                  return (
+                    Selector(props.cat, props.component)
+                  )
+                }
+              }
+            />
+          )
+      } else if (logged === false) {
+        return (
+          <Redirect to="/SignIn" />
+        )      
+      } 
+  
+    }
 
-  const LoggedStack = () => {
     return (
       <BrowserRouter>
-          <Route exact={true  } path="/" component={() => Home(0)} />
-          <Route path="/Home" component={() => Home(1)} />
-          <Route path="/User" component={() => Home(2)} />
+        <NonProtectedRoute path="/SignIn" cat={1} />
+        <NonProtectedRoute path="/SignUp" cat={1} />
+        <ProtectedRoute path="/Home" cat={1} component={1} /> 
       </BrowserRouter>
-    )
+      )
   }
-
-  const LoadingStack = () => {
-    return (
-      <BrowserRouter>
-          <Route exact path="/" component={() => (
-          <div>
-            <h1>asdasda</h1>
-          </div>
-          ) } />
-      </BrowserRouter>
-    )
-  }
-
-  const AuthFlow = props => {
-
-    Location()
-    
-    if(logged == true ){
-      return LoggedStack()
-
-    } else if (logged == false){
-      return LoginStack()
-
-    } else {
-      return LoadingStack()
-    }
-
-  }
-
-  return (
-    <CookiesProvider>
-      <AuthFlow />
-    </CookiesProvider>
-  )
-}
-
-export default App;
+} 
