@@ -17,7 +17,7 @@ export default class App extends React.Component {
 
   componentWillMount() {
 
-    //this.setState({logged : true})
+    this.setState({logged : true})
 
   }
 

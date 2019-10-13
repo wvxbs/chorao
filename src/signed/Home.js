@@ -1,11 +1,11 @@
 import React from 'react'
+import Layout from './home/Layout'
 
 const Home = props => {
+
     return (
         <div>
-            <h1>
-                asdasd
-            </h1>
+            <Layout selected={props.selected} />
         </div>
     )
 }
