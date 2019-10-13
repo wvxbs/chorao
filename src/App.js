@@ -25,7 +25,7 @@ export default class App extends React.Component {
 
     var {logged} = this.state
 
-    const DefaultRoute = () => {
+    const DefaultRoute = props => {
 
       if(logged === true) {
        return (
@@ -65,30 +65,19 @@ export default class App extends React.Component {
     const NonProtectedRoute = props => {
       if(logged === false) { 
         return (
-            <Route 
-                path={"/" + props.path + ""} 
-                component={() => <Sign selected={props.cat} /> }
-            />
+            <Sign selected={props.cat} />
           )
       } else if (logged === true) {
         return (
           <Redirect to="/Home" />
-        )      
-      } 
+        )
+      }
     }
 
     const ProtectedRoute = props => {
       if(logged === true) { 
         return (
-            <Route 
-                path={"/" + props.path + ""} 
-                component={() => {
-                  return (
-                    Selector(props.cat, props.component)
-                  )
-                }
-              }
-            />
+            Selector(props.cat, props.component)
           )
       } else if (logged === false) {
         return (
@@ -100,9 +89,48 @@ export default class App extends React.Component {
 
     return (
       <BrowserRouter>
-        <NonProtectedRoute path="/SignIn" cat={1} />
-        <NonProtectedRoute path="/SignUp" cat={1} />
-        <ProtectedRoute path="/Home" cat={1} component={1} /> 
+        <Route 
+          exact
+          path="/"
+          component={() => <DefaultRoute />}
+        />
+        <Route 
+          path="/SignIn" 
+          component={() => (
+            <NonProtectedRoute  
+              cat={1} 
+            />
+            )
+          } 
+        />
+        <Route 
+          path="/SignUp" 
+          component={() => (
+            <NonProtectedRoute 
+              cat={2} 
+            />
+            )
+          }
+        />
+        <Route 
+          path="/Home"
+          component={() => (
+            <ProtectedRoute 
+              cat={1}  
+              component={1} 
+            />
+            )
+          }
+        />
+       <Route 
+          path="/Details"
+          component={() => (
+            <ProtectedRoute 
+              cat={1}  
+              component={2} />
+            )
+          }
+        />
       </BrowserRouter>
       )
   }
