@@ -1,14 +1,26 @@
 import React, {useState, useEffect} from 'react'
-import Content from './Content'
+import Content from './layout/Content'
+import Header from '../../components/Header'
+import Sidebar from './layout/Sidebar'
 
 const Layout = props => {
 
     return (
         <div>
-            <div id="body" className="container">
-                <Content 
-                    selected={props.selected} 
-                />
+            <div id="header">
+                <Header />
+            </div>
+            <div id="body" className="container-fluid">
+                <div class="columns">
+                    <div class="column is-one-fifth is-hidden-tablet" id="sidebar">
+                        <Sidebar />
+                    </div>
+                    <div class="column is-auto" id="homeContent">
+                        <Content 
+                            selected={props.selected} 
+                        />
+                    </div>
+                </div>
             </div>
         </div>
     )
