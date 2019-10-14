@@ -122,6 +122,26 @@ export default class App extends React.Component {
             )
           }
         />
+        <Route 
+          path="/Recents"
+          component={() => (
+            <ProtectedRoute 
+              cat={1}  
+              component={2} 
+            />
+            )
+          }
+        />
+      <Route 
+          path="/Trash"
+          component={() => (
+            <ProtectedRoute 
+              cat={1}  
+              component={3} 
+            />
+            )
+          }
+        />
        <Route 
           path="/Details"
           component={() => (

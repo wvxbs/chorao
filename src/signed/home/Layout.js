@@ -10,9 +10,9 @@ const Layout = props => {
             <div id="header">
                 <Header />
             </div>
-            <div id="body" className="container-fluid">
+            <div id="body" className="container">
                 <div class="columns">
-                    <div class="column is-one-fifth is-hidden-tablet" id="sidebar">
+                    <div class="column is-one-fifth is-hidden-touch" id="sidebar">
                         <Sidebar />
                     </div>
                     <div class="column is-auto" id="homeContent">
