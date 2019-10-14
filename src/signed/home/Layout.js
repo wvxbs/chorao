@@ -13,6 +13,11 @@ const Layout = props => {
             <div id="body" className="container">
                 <div class="columns">
                     <div class="column is-one-fifth is-hidden-touch" id="sidebar">
+                        <div>
+                            <h1 className="title">
+                                Ações:
+                            </h1>
+                        </div>
                         <Sidebar />
                     </div>
                     <div class="column is-auto" id="homeContent">

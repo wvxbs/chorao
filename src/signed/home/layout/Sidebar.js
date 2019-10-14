@@ -54,11 +54,6 @@ const Sidebar = props => {
     return (
         <div>
             <div>
-                <h1 className="title">
-                    Ações
-                </h1>
-            </div>
-            <div>
                 <div id="buttons">
                     <Buttons />
                 </div>
