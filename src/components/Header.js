@@ -21,10 +21,10 @@ const Header = props => {
                 <div className="navbar-item">
                     <div className="buttons">
                     <a className="button is-primary">
-                        <strong>Sign up</strong>
+                        <strong>adasd</strong>
                     </a>
                     <a className="button is-light">
-                        Log in
+                        asdasd
                     </a>
                     </div>
                 </div>
