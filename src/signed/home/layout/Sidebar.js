@@ -21,31 +21,33 @@ const Sidebar = props => {
         let buttons = [
             {
                 text : "Geral",
-                img : '',
+                img : 'fas fa-trash',
                 to : '/Home',
                 selected : false
             },
             {
                 text : "Recentes",
-                img : '',
+                img : 'fas fa-history',
                 to : "/Recents",
                 selected : false
             },
             {
                 text : "Lixeira",
-                img : '',
+                img : 'fas fa-trash-alt',
                 to : "/Trash",
                 selected : false
             }
         ]
 
         const render = buttons.map(button => (
+            <li>
             <NavButton
                 text={button.text}
                 img={button.img}
                 to={button.to}
                 selected={button.selected}
             />
+            </li>
         ))
 
         return render
@@ -54,9 +56,9 @@ const Sidebar = props => {
     return (
         <div>
             <div>
-                <div id="buttons">
+                <ul id="buttonsList">
                     <Buttons />
-                </div>
+                </ul>
             </div>
         </div>
     )

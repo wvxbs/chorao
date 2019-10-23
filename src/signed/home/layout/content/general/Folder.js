@@ -5,10 +5,10 @@ const Folder = props => {
         <div class="card">
             <div class="card-content">
                 <p class="title">
-                {props.name}
+                    {props.title}
                 </p>
                 <p class="subtitle">
-                {props.desc}
+                    {props.desc}
                 </p>
             </div>
         </div>
