@@ -11,7 +11,7 @@ return (
                     location={props.folder}
                 />
             </div>
-            <div className="container">
+            <div className="container is-fluid">
                 <div>
                     <Content selected={props.selected} folder={props.folder}/>
                 </div>
