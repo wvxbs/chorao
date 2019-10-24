@@ -3,8 +3,8 @@ import './Style.sass';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
 import Sign from './sign/Sign'
 import Home from './signed/Home'
-import { CookiesProvider } from 'react-cookie'
-
+import Folder from './signed/Folder';
+//import { CookiesProvider } from 'react-cookie'
 
 export default class App extends React.Component {
 
@@ -33,7 +33,7 @@ export default class App extends React.Component {
        )
   
       } else if (logged === false) {
-  
+
         return (
           <Redirect to="/SignIn" />
         )      
@@ -51,7 +51,7 @@ export default class App extends React.Component {
           return <Sign selected={id} />
         break
         case 3:
-          return <Sign selected={id} />
+          return <Folder />
         break
         case 4:
           return <Sign selected={id} />
@@ -148,6 +148,15 @@ export default class App extends React.Component {
             <ProtectedRoute 
               cat={1}  
               component={2} />
+            )
+          }
+        />
+        <Route 
+          path="/Folder/:folderName"
+          component={() => (
+            <ProtectedRoute 
+              cat={3}  
+              component={1} />
             )
           }
         />
