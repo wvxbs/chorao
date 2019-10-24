@@ -10,7 +10,7 @@ const Layout = props => {
             <div id="header">
                 <Header />
             </div>
-            <div id="body" className="container is-fluid">
+            <div id="body" className="container">
                 <div class="columns">
                     <div class="column is-one-fifth is-hidden-touch" id="sidebar">
                         <div>

@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import { Link, Route } from 'react-router-dom'
-import Folder from './general/Folder'
-import FolderDetails from '../../../Folder'
+import Folder from './../../../../components/Folder'
 
 const General = props => {
 
@@ -47,7 +46,7 @@ const General = props => {
                         },
                         {
                             id : 2,
-                            user : 'Maia',
+                            user : 'wvxbs',
                             name : 'Pasta 2',
                             desc : 'Fotos e Videos'
                         },

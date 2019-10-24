@@ -51,7 +51,7 @@ export default class App extends React.Component {
           return <Sign selected={id} />
         break
         case 3:
-          return <Folder />
+          return <Folder selected={id} />
         break
         case 4:
           return <Sign selected={id} />
@@ -157,6 +157,15 @@ export default class App extends React.Component {
             <ProtectedRoute 
               cat={3}  
               component={1} />
+            )
+          }
+        />
+        <Route 
+          path="/Folder/:folderName/:fileName"
+          component={() => (
+            <ProtectedRoute 
+              cat={3}  
+              component={2} />
             )
           }
         />

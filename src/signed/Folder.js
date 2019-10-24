@@ -26,17 +26,9 @@ class Folder extends React.Component {
                 selected={this.props.selected}
                 folder={this.state.folderName}
             />
-        )
-    } 
-
-    else 
-
-    if(this.state.logged === false) {
-        return <Redirect to="/" />
+        ) 
     }
-
-    }
-
+}
 }
 
 export default withRouter(Folder)
