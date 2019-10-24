@@ -7,7 +7,9 @@ const Layout = props => {
 return (
         <div>
             <div>
-                <Header />
+                <Header 
+                    location={props.folder}
+                />
             </div>
             <div className="container">
                 <div>

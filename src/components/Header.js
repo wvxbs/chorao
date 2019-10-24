@@ -2,12 +2,28 @@ import React from 'react'
 import Sidebar from '../signed/home/layout/Sidebar'
 
 const Header = props => {
+
+    const Location = props.location
+
+    if(Location === "Home"){
+        
+    }
+
+    const handleCreateFile = () => {
+
+    }
+
+    const handleCreateFolder = () => {
+        
+    }
+
+
     return (
         <div className="navbar" role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
                 <a className="navbar-item" href="https://bulma.io">
                     <h1 className="title ">
-                        Chorão
+                        <i class="fas fa-sad-cry"></i>
                     </h1>
                 </a>
                 <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -21,10 +37,10 @@ const Header = props => {
                 <div className="navbar-item">
                     <div className="buttons">
                     <a className="button is-primary">
-                        <strong>adasd</strong>
+                        <i class="far fa-file"></i>
                     </a>
                     <a className="button is-light">
-                        asdasd
+                    <i class="fas fa-folder-plus"></i>
                     </a>
                     </div>
                 </div>

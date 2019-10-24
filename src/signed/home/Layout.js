@@ -8,7 +8,9 @@ const Layout = props => {
     return (
         <div>
             <div id="header">
-                <Header />
+                <Header 
+                    location="Home"
+                />
             </div>
             <div id="body" className="container">
                 <div class="columns">

@@ -3,6 +3,14 @@ import React from 'react'
 const File = props => {
 
 
+    const HandleEdit = () => {
+        
+    }
+
+    const HandleDelete = () => {
+        
+    }
+
     
     return (
         <div className="card">
