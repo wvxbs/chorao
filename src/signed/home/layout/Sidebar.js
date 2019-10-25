@@ -21,7 +21,7 @@ const Sidebar = props => {
         let buttons = [
             {
                 text : "Geral",
-                img : 'fas fa-trash',
+                img : 'fas fa-home',
                 to : '/Home',
                 selected : false
             },

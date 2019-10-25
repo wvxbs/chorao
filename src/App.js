@@ -165,7 +165,7 @@ export default class App extends React.Component {
           component={() => (
             <ProtectedRoute 
               cat={3}  
-              component={2} />
+              component={1} />
             )
           }
         />
