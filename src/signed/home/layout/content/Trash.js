@@ -1,15 +1,20 @@
 import React from 'react'
+import Files from './trash/Files'
 
-const Trash = props => {
-    return (
-        <div>
+const General = props => {
+
+        return (
             <div>
-                <h1 className="title title-mb">
-                    Lixeira:
-                </h1>
+                <div>
+                    <h1 className="title title-mb">
+                        Lixeira:
+                    </h1>
+                </div>
+                <div className="folder-container">
+                    <Files />
+                </div>
             </div>
-        </div>
-    )
+        )
 }
 
-export default Trash
+export default General

@@ -1,9 +1,7 @@
 import React from 'react'
-import File from '../../../../components/File'
-import {Link} from 'react-router-dom'
-import FileDetails from '../../../../components/FileDetails'
+import File from '../../../../../components/File'
 
-const General = props => {
+const Files = props => {
 
     const RenderFiles = () => {
 
@@ -42,18 +40,11 @@ const General = props => {
         return files
     }
 
-        return (
-            <div>
-                <div>
-                    <h1 className="title title-mb">
-                        {props.folder}:
-                    </h1>
-                </div>
-                <div className="folder-container">
-                    {RenderFiles()}
-                </div>
-            </div>
-        )
+    return (
+        <div className="folder-container">
+            {RenderFiles()}
+        </div>
+    )
 }
 
-export default General
+export default Files

@@ -1,15 +1,20 @@
 import React from 'react'
+import Files from './recents/Files'
 
-const Recents = props => {
-    return (
-        <div>
+const General = props => {
+
+        return (
             <div>
-                <h1 className="title title-mb">
-                    Recentes:
-                </h1>
+                <div>
+                    <h1 className="title title-mb">
+                        Recentes:
+                    </h1>
+                </div>
+                <div className="folder-container">
+                    <Files />
+                </div>
             </div>
-        </div>
-    )
+        )
 }
 
-export default Recents
+export default General

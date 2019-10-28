@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
 import Sign from './sign/Sign'
 import Home from './signed/Home'
 import Folder from './signed/Folder';
+import FileDetails from './components/FileDetails';
 //import { CookiesProvider } from 'react-cookie'
 
 export default class App extends React.Component {
@@ -48,10 +49,10 @@ export default class App extends React.Component {
           return <Home selected={id} />
         break
         case 2:
-          return <Sign selected={id} />
+          return <Folder selected={id} />
         break
         case 3:
-          return <Folder selected={id} />
+          return <Sign selected={id} />
         break
         case 4:
           return <Sign selected={id} />
@@ -155,16 +156,7 @@ export default class App extends React.Component {
           path="/Folder/:folderName"
           component={() => (
             <ProtectedRoute 
-              cat={3}  
-              component={1} />
-            )
-          }
-        />
-        <Route 
-          path="/Folder/:folderName/:fileName"
-          component={() => (
-            <ProtectedRoute 
-              cat={3}  
+              cat={2}  
               component={1} />
             )
           }

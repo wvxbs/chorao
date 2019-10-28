@@ -1,5 +1,6 @@
 import React from 'react'
 import Sidebar from '../signed/home/layout/Sidebar'
+import { Link } from 'react-router-dom'
 
 const Header = props => {
 
@@ -21,11 +22,11 @@ const Header = props => {
     return (
         <div className="navbar" role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
-                <a className="navbar-item" href="https://bulma.io">
+                <Link className="navbar-item" to="/">
                     <h1 className="title ">
                         <i class="fas fa-sad-cry"></i>
                     </h1>
-                </a>
+                </Link>
                 <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>

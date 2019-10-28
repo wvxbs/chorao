@@ -1,6 +1,6 @@
 import React from 'react'
 import General from './content/General'
-import File from './content/File'
+import FileDetails from '../../../components/FileDetails'
 
 const Content = props => {
 
@@ -12,10 +12,7 @@ const Content = props => {
             case 1:
                 return <General folder={props.folder} />
             break
-            case 2 : 
-                return <File folder={props.folder} />
-            break
-            default:
+            default :
                 return null
             break
         }
