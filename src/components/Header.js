@@ -21,7 +21,7 @@ const Header = props => {
             <div className="navbar-brand">
                 <Link className="navbar-item" to="/">
                     <h1 className="title ">
-                        <i class="fas fa-sad-cry"></i>
+                        <i className="fas fa-sad-cry"></i>
                     </h1>
                 </Link>
                 <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -36,7 +36,7 @@ const Header = props => {
                     <div className="buttons">
                         <Link to="CreateFile">
                             <button className="button is-primary">
-                                <i class="far fa-file"></i>
+                                <i className="far fa-file"></i>
                             </button>    
                         </Link>
                     </div>

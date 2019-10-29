@@ -5,7 +5,7 @@ const Button = props => {
     const spacer = " " + props.text
 
     return (
-        <button class="button is-medium is-white">
+        <button className="button is-medium is-white">
             <b>
                 <p className={props.img}> </p>
                 {spacer}

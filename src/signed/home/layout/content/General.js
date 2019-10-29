@@ -5,58 +5,78 @@ import File from './../../../../components/File'
 import Req from '../../../../Req'
 import NoFileError from '../../../../components/NoFilesError'
 
-const General = props => {
+class General extends React.Component {
+    state ={
+        files : undefined,
+        ready : false
+    }
 
-    const [files, setFiles] = useState(undefined)
-
-    useEffect(() => {
+    componentDidMount () {
         axios.get(Req.ListAll).then(res => {
-            setFiles(JSON.stringify(res.data))
+            this.setState({
+                files : res.data,
+                ready : true
+            })
         }).catch(err =>{
-            setFiles(undefined)
-            console.log(JSON.stringify(err.message))
+            alert(err.message)  
+            this.setState({
+                files : undefined,
+                ready : true
+            })
         })
 
-    }) 
+        console.log(this.state.files)
 
-    const Files =  (arr) => {
+    } 
 
-        if(files === undefined) {
-            return (
-                <NoFileError />
-            )
+    
+    RenderFiles = () => {
 
-        } else {
-            const RenderFile = files.map(File => {
+        if(this.state.ready) {
+
+            if(this.state.files === undefined) {
                 return (
-                    <div>
-                        <File 
-                            id={File.id}
-                            desc={File.desc}
-                            title={File.name}
-                        />
-                    </div>
+                    <NoFileError />
                 )
-            })
 
-            return RenderFile
+            } else {
+                return this.state.files.map(e => {
+                    return (
+                        <File 
+                            key={e}
+                            name={e}
+                        />
+                    )
+                })
+            }
+        } else if(!this.state.ready) {
+            return (
+                <div><h1>...</h1></div>
+            )
         }
     }
 
-    return(
-        <div>
+    render () {
+
+        const {files, ready} = this.state
+
+        return (
             <div>
-                <h1 className="title title-mb">
-                    Visão Geral:
-                </h1>
-            </div>
-            <div>
-                <div className="File-container" >
-                    {Files()}
+                <div>
+                    <h1 className="title title-mb">
+                        Visão Geral:
+                    </h1>
+                </div>
+                <div>
+                    <div className="folder-container" >
+                        {this.RenderFiles()}
+                    </div>
                 </div>
             </div>
-        </div>
-    )
+        )
+    }
+
+
 }
 
 export default General

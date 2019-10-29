@@ -18,7 +18,7 @@ const SignIn = props => {
             <div className="form-card">
                 <div className="form-icon-container">
                     <div>
-                        <h1 class="fas fa-address-card form-icon"></h1>
+                        <h1 className="fas fa-address-card form-icon"></h1>
                     </div>
                 </div>
                 <div className="field">

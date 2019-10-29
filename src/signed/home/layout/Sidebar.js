@@ -6,13 +6,25 @@ const Sidebar = props => {
 
     const NavButton = props => {
         return (
-            <Link to={props.to}>
+            <div>
+                <Link to="/Home">
+                    <Button 
+                        img="fas fa-home"
+                        text="Geral"
+                        selected={props.selected}
+                    />
+                </Link>
                 <Button 
-                    img={props.img}
-                    text={props.text}
+                    img="fas fa-history"
+                    text="Recentes"
                     selected={props.selected}
                 />
-            </Link>
+                <Button 
+                    img="fas fa-trash-alt"
+                    text="Lixeira"
+                    selected={props.selected}
+                />
+            </div>
         )
     }
 
@@ -57,7 +69,7 @@ const Sidebar = props => {
         <div>
             <div>
                 <ul id="buttonsList">
-                    <Buttons />
+                    <NavButton />
                 </ul>
             </div>
         </div>

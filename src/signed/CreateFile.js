@@ -9,6 +9,7 @@ const CreateFile = props => {
     const [active, setActive] = useState("")
     const [fileName, setFileName] = useState("")
     const [file, setFile] = useState("")
+    const [button, setButton] = useState("")
 
     useEffect(() => {
         setActive(props.active)
@@ -16,23 +17,28 @@ const CreateFile = props => {
 
     const ConfirmUpload = (oFile) => {
 
+        setButton("is-loading")
+
+        console.log("start")
+
+        console.log(oFile)
+
         var fd = new FormData();
 
-        fd.append('file', oFile); 
+        fd.append('data', oFile); 
 
-        axios.post(Req.CreateFile,{
-            headers: {                  
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE" ,
-            },
-            data : fd
-        })
+        console.log(fd)
+
+        axios.post(Req.CreateFile, fd)
         .then(res => {
             alert("Arquivo enviado com sucesso!")
-            return <Redirect to="/"/>
+            console.log("end")
+            setButton("")
         })
         .catch(err => {
             alert(err.message)
+            console.log("end")
+            setButton("")
         })
     }
 
@@ -90,7 +96,7 @@ const CreateFile = props => {
                 </section>
                 <footer className="modal-card-foot">
                     <button 
-                        className="button is-primary"
+                        className={"button is-primary" + " " + button}
                         onClick={() => ConfirmUpload(file)}
                     >
                         Enviar

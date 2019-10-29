@@ -13,8 +13,8 @@ const Layout = props => {
                 />
             </div>
             <div id="body" className="container is-fluid">
-                <div class="columns">
-                    <div class="column is-one-fifth is-hidden-touch" id="sidebar">
+                <div className="columns">
+                    <div className="column is-one-fifth is-hidden-touch" id="sidebar">
                         <div>
                             <h1 className="title title-mb">
                                 Ações:
@@ -22,7 +22,7 @@ const Layout = props => {
                         </div>
                         <Sidebar />
                     </div>
-                    <div class="column is-auto" id="homeContent">
+                    <div className="column is-auto" id="homeContent">
                         <Content 
                             selected={props.selected} 
                         />

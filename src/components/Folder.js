@@ -2,12 +2,12 @@ import React from 'react'
 
 const Folder = props => {
     return (
-        <div class="card">
-            <div class="card-content">
-                <p class="title">
+        <div className="card">
+            <div className="card-content">
+                <p className="title">
                     {props.title}
                 </p>
-                <p class="subtitle">
+                <p className="subtitle">
                     {props.desc}
                 </p>
             </div>
