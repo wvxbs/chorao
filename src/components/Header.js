@@ -1,19 +1,20 @@
 import React from 'react'
 import Sidebar from '../signed/home/layout/Sidebar'
 import { Link } from 'react-router-dom'
+import CreateFile from '../signed/CreateFile'
 
 const Header = props => {
 
-    const Location = props.location
-
-    if(Location === "Home"){
-        
-    }
-
     const handleCreateFile = () => {
 
-    }
+        alert("asdasd")
 
+        return (
+            <CreateFile 
+                active="is-active"
+            />
+        )
+    }
 
     return (
         <div className="navbar" role="navigation" aria-label="main navigation">
@@ -33,9 +34,11 @@ const Header = props => {
                 <div className="navbar-end">
                 <div className="navbar-item">
                     <div className="buttons">
-                        <a className="button is-primary">
-                            <i class="far fa-file"></i>
-                        </a>    
+                        <Link to="CreateFile">
+                            <button className="button is-primary">
+                                <i class="far fa-file"></i>
+                            </button>    
+                        </Link>
                     </div>
                 </div>
                 <div className="navbar-end is-hidden-desktop">

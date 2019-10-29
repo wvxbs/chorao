@@ -1,8 +1,10 @@
+const base = "https://chorao.herokuapp.com"
+
 const Req = {
-    "ListAll" : "https://chorao.herokuapp.com/api/explorer/file",
-    "CreateFile" : "https://chorao.herokuapp.com/api/explorer/file",
-    "RenameFile" : "https://chorao.herokuapp.com/api/explorer/file",
-    "ExcludeFile" : "https://chorao.herokuapp.com/api/explorer/file"
+    "ListAll" : base + "/api/explorer/file",
+    "CreateFile" : base + "/api/explorer/file",
+    "RenameFile" : base + "/api/explorer/file",
+    "ExcludeFile" : base + "/api/explorer/file"
 }
 
 export default Req

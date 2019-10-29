@@ -5,6 +5,7 @@ import Sign from './sign/Sign'
 import Home from './signed/Home'
 import Folder from './signed/Folder';
 import FileDetails from './components/FileDetails';
+import CreateFile from './signed/CreateFile';
 //import { CookiesProvider } from 'react-cookie'
 
 export default class App extends React.Component {
@@ -52,7 +53,7 @@ export default class App extends React.Component {
           return <Folder selected={id} />
         break
         case 3:
-          return <Sign selected={id} />
+          return <CreateFile selected={id} />
         break
         case 4:
           return <Sign selected={id} />
@@ -153,10 +154,10 @@ export default class App extends React.Component {
           }
         />
         <Route 
-          path="/Folder/:folderName"
+          path="/CreateFile"
           component={() => (
             <ProtectedRoute 
-              cat={2}  
+              cat={3}  
               component={1} />
             )
           }
