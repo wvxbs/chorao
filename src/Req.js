@@ -4,10 +4,22 @@ const Req = () => {
 
 
     var method = {
-        "ListAll" : base + "/api/explorer/file",
-        "CreateFile" : base + "/api/explorer/file",
-        "RenameFile" : base + "/api/explorer/file",
-        "ExcludeFile" : base + "/api/explorer/file",
+        "ListAll" : {
+            method : "GET",
+            name : base + "/api/explorer/file"
+        },
+        "CreateFile" : {
+            method : "POST",
+            name : base + "/api/explorer/file"
+        },
+        "RenameFile" : {
+            method : "PUT",
+            name : base + "/api/explorer/file"
+        },
+        "ExcludeFile" : {
+            method : "DEL",
+            name : base + "/api/explorer/file"
+        },
     }
 
 }
