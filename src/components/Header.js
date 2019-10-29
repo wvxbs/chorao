@@ -14,10 +14,6 @@ const Header = props => {
 
     }
 
-    const handleCreateFolder = () => {
-        
-    }
-
 
     return (
         <div className="navbar" role="navigation" aria-label="main navigation">
@@ -37,12 +33,9 @@ const Header = props => {
                 <div className="navbar-end">
                 <div className="navbar-item">
                     <div className="buttons">
-                    <a className="button is-primary">
-                        <i class="far fa-file"></i>
-                    </a>
-                    <a className="button is-light">
-                    <i class="fas fa-folder-plus"></i>
-                    </a>
+                        <a className="button is-primary">
+                            <i class="far fa-file"></i>
+                        </a>    
                     </div>
                 </div>
                 <div className="navbar-end is-hidden-desktop">

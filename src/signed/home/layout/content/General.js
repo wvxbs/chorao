@@ -1,32 +1,46 @@
 import React, {useEffect, useState} from 'react'
+import axios from 'axios'
 import { Link, Route } from 'react-router-dom'
-import Folder from './../../../../components/Folder'
+import File from './../../../../components/File'
+import Req from '../../../../Req'
+import NoFileError from '../../../../components/NoFilesError'
 
 const General = props => {
 
-    const [Items, setItems]= useState([])
+    const [files, setFiles] = useState(undefined)
 
-    const Folders =  (arr) => {
-        const RenderFolder = arr.map(folder => {
-            return (
-                <div>
-                    <Link 
-                        to={{
-                            pathname :"/Folder" + "/" + 
-                            folder.name.replace(/\s/g, '')
-                        }}
-                    >
-                        <Folder 
-                            id={folder.id}
-                            desc={folder.desc}
-                            title={folder.name}
-                        />
-                    </Link>
-                </div>
-            )
+    useEffect(() => {
+        axios.get(Req.ListAll).then(res => {
+            setFiles(JSON.stringify(res.data))
+        }).catch(err =>{
+            setFiles(undefined)
+            console.log(JSON.stringify(err.message))
         })
 
-        return RenderFolder
+    }) 
+
+    const Files =  (arr) => {
+
+        if(files === undefined) {
+            return (
+                <NoFileError />
+            )
+
+        } else {
+            const RenderFile = files.map(File => {
+                return (
+                    <div>
+                        <File 
+                            id={File.id}
+                            desc={File.desc}
+                            title={File.name}
+                        />
+                    </div>
+                )
+            })
+
+            return RenderFile
+        }
     }
 
     return(
@@ -37,27 +51,8 @@ const General = props => {
                 </h1>
             </div>
             <div>
-                <div className="folder-container" >
-                    {Folders([
-                        {
-                            id : 1,
-                            user : 'wvxbs',
-                            name : 'Pasta 1',
-                            desc : 'Misc'
-                        },
-                        {
-                            id : 2,
-                            user : 'wvxbs',
-                            name : 'Pasta 2',
-                            desc : 'Fotos e Videos'
-                        },
-                        {
-                            id : 1,
-                            user : 'wvxbs',
-                            name : 'Pasta 1',
-                            desc : 'Misc'
-                        },
-                    ])}
+                <div className="File-container" >
+                    {Files()}
                 </div>
             </div>
         </div>
