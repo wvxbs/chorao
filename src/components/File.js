@@ -8,15 +8,29 @@ const File = props => {
         axios({
             method: 'get',
             url: Req.ListAll + "?filename=" + file,
+            responseType: 'blob'
+        }).then((res)=> {
+            const url = window.URL.createObjectURL(new Blob([ res.data ]))
+            const link = document.createElement('a')
+            
+            link.href = url
+            link.setAttribute('download', file)
+
+            document.body.appendChild(link)
+
+            link.click()
         })
     }
+    
 
     const handleDelete = file => {
         axios({
             method: 'delete',
-            url: Req.ListAll + "?filename=" + file,
+            url: Req.ListAll + "?filename=" + file
         }).then(()=> {
             window.location.reload();
+        }).catch(() => {
+            alert('Erro ao excluir arquivo')
         })
     }
 
