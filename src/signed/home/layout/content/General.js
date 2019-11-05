@@ -7,7 +7,7 @@ import NoFileError from '../../../../components/NoFilesError'
 
 class General extends React.Component {
     state ={
-        files : undefined,
+        files : [],
         ready : false
     }
 
@@ -20,7 +20,7 @@ class General extends React.Component {
         }).catch(err =>{
             alert(err.message)  
             this.setState({
-                files : undefined,
+                files : [],
                 ready : true
             })
         })
@@ -34,12 +34,12 @@ class General extends React.Component {
 
         if(this.state.ready) {
 
-            if(this.state.files === undefined) {
+            if(this.state.files.length === 0) {
                 return (
                     <NoFileError />
                 )
 
-            } else {
+            } else if(this.state.files.length > 0) {
                 return this.state.files.map(e => {
                     return (
                         <File 
