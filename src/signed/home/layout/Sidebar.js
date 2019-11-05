@@ -7,23 +7,13 @@ const Sidebar = props => {
     const NavButton = props => {
         return (
             <div>
-                <Link to="/Home">
+                <Link to={props.to}>
                     <Button 
-                        img="fas fa-home"
-                        text="Geral"
+                        img={props.img}
+                        text={props.text}
                         selected={props.selected}
                     />
-                </Link>
-                <Button 
-                    img="fas fa-history"
-                    text="Recentes"
-                    selected={props.selected}
-                />
-                <Button 
-                    img="fas fa-trash-alt"
-                    text="Lixeira"
-                    selected={props.selected}
-                />
+                </Link> 
             </div>
         )
     }
